@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  reiverr:
+    container_name: reiverr
+    image: ghcr.io/aleksilassila/reiverr:latest
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+      - SECRET=${SECRET}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data:/config
+    ports:
+      - ${APP_PORT}:9494
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.reiverr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.reiverr.loadbalancer.server.port: 9494
+      traefik.http.routers.reiverr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.reiverr-insecure.entrypoints: web
+      traefik.http.routers.reiverr-insecure.service: reiverr
+      traefik.http.routers.reiverr-insecure.middlewares: reiverr-web-redirect
+      traefik.http.routers.reiverr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.reiverr.entrypoints: websecure
+      traefik.http.routers.reiverr.service: reiverr
+      traefik.http.routers.reiverr.tls.certresolver: myresolver
+      traefik.http.routers.reiverr-local-insecure.rule: Host(`reiverr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.reiverr-local-insecure.entrypoints: web
+      traefik.http.routers.reiverr-local-insecure.service: reiverr
+      traefik.http.routers.reiverr-local-insecure.middlewares: reiverr-web-redirect
+      traefik.http.routers.reiverr-local.rule: Host(`reiverr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.reiverr-local.entrypoints: websecure
+      traefik.http.routers.reiverr-local.service: reiverr
+      traefik.http.routers.reiverr-local.tls: true

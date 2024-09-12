@@ -1,0 +1,42 @@
+{
+  "name": "Reiverr",
+  "id": "reiverr",
+  "available": true,
+  "short_desc": "A web app for managing your Plex media server",
+  "author": "aleksilassila",
+  "port": 9494,
+  "categories": [
+    "media"
+  ],
+  "description": "Reiverr is a web application for managing your Plex media server, including features for searching and requesting new content.",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/aleksilassila/reiverr",
+  "exposable": true,
+  "supported_architectures": [
+    "amd64"
+  ],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800,
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Secret",
+      "hint": "Used to sign JWT tokens for authentication. Use a random string.",
+      "required": false,
+      "env_variable": "SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Admin Username",
+      "required": false,
+      "env_variable": "ADMIN_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Admin Password",
+      "required": false,
+      "env_variable": "ADMIN_PASSWORD"
+    }
+  ]
+}
