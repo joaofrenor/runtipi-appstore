@@ -2,19 +2,22 @@
   "name": "Reiverr",
   "id": "reiverr",
   "available": true,
-  "short_desc": "A web app for managing your Plex media server",
+  "short_desc": "A web app for managing your Jellyfin media server",
   "author": "aleksilassila",
   "port": 9494,
   "categories": [
     "media"
   ],
-  "description": "Reiverr is a web application for managing your Plex media server, including features for searching and requesting new content.",
-  "tipi_version": 1,
+  "description": "Reiverr is a web application for managing your Jellyfin media server, including features for searching and requesting new content.",
+  "tipi_version": 10,
+  "min_tipi_version": "3.6.0",
   "version": "latest",
   "source": "https://github.com/aleksilassila/reiverr",
+  "website": "https://github.com/aleksilassila/reiverr#readme",
   "exposable": true,
   "supported_architectures": [
-    "amd64"
+    "amd64",
+    "arm64"
   ],
   "created_at": 1724134338800,
   "updated_at": 1724134338800,
@@ -38,5 +41,6 @@
       "required": false,
       "env_variable": "ADMIN_PASSWORD"
     }
-  ]
+  ],
+  "image": "logo.jpeg"
 }
