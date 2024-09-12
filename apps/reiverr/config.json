@@ -1,5 +1,5 @@
 {
-  "name": "Reiverr",
+  "name": "Reiverr updated",
   "id": "reiverr",
   "available": true,
   "short_desc": "A web app for managing your Jellyfin media server",
@@ -16,7 +16,6 @@
   "website": "https://github.com/aleksilassila/reiverr#readme",
   "exposable": true,
   "supported_architectures": [
-    "amd64",
     "arm64"
   ],
   "created_at": 1724134338800,
