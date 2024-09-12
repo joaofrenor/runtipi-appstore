@@ -2,7 +2,7 @@ version: "3.9"
 services:
   reiverr:
     container_name: reiverr
-    image: ghcr.io/ismailkarsli/reiverr:latest
+    image: ghcr.io/joaofrenor/reiverr:latest
     restart: unless-stopped
     environment:
       - TZ=${TZ}
