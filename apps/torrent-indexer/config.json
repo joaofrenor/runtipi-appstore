@@ -1,0 +1,27 @@
+{
+  "name": "Torrent Indexer",
+  "id": "torrent-indexer",
+  "available": true,
+  "short_desc": "A torrent indexing service",
+  "author": "felipemarinho97",
+  "port": 7006,
+  "categories": [
+    "networking",
+    "tools"
+  ],
+  "description": "Torrent Indexer is a service that indexes torrent files and provides a searchable interface.",
+  "tipi_version": 10,
+  "min_tipi_version": "3.6.0",
+  "version": "latest",
+  "source": "https://github.com/felipemarinho97/torrent-indexer",
+  "website": "https://github.com/felipemarinho97/torrent-indexer#readme",
+  "exposable": true,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800,
+  "form_fields": [],
+  "image": "logo.png"
+}
