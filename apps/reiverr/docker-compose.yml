@@ -2,13 +2,13 @@ version: "3.9"
 services:
   reiverr:
     container_name: reiverr
-    image: jothiprasath2/reiverr:latest
+    image: ghcr.io/joaofrenor/reiverr:latest
     restart: unless-stopped
     environment:
       - TZ=${TZ}
-      - SECRET=${SECRET}
-      - ADMIN_USERNAME=${ADMIN_USERNAME}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+      - SECRET=${SECRET:-SECRET1234}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
     volumes:
       - ${APP_DATA_DIR}/data:/config
     ports:
