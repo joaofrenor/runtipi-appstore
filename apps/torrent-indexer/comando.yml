@@ -1,0 +1,68 @@
+---
+id: comando_torrents_indexer
+name: Comando Torrents Indexer
+description: "Comando Torrents - Custom indexer from torrent-indexer"
+language: pt-BR
+type: public
+encoding: UTF-8
+links:
+  - http://192.168.1.100:7006/
+
+caps:
+  categorymappings:
+    - {id: Movie, cat: Movies, desc: "Movies"}
+    - {id: TV, cat: TV, desc: "TV"}
+
+  modes:
+    search: [q]
+    tv-search: [q, season, ep, imdbid]
+    movie-search: [q, imdbid]
+
+settings: []
+
+search:
+  paths:
+    - path: "indexers/comando_torrents?filter_results=true&q={{ .Keywords }}"
+      response:
+        type: json
+
+  rows:
+    selector: $.results
+    count:
+      selector: $.count
+
+  fields:
+    _id:
+      selector: title
+    download:
+      selector: magnet_link
+    title:
+      selector: title
+    description:
+      selector: original_title
+    details:
+      selector: details
+    infohash:
+      selector: info_hash
+    date:
+      selector: date
+      filters:
+        - name: dateparse
+          args: "2006-01-02T15:04:05Z07:00"
+    size:
+      selector: size
+    seeders:
+      selector: seed_count
+    leechers:
+      selector: leech_count
+    imdbid:
+      selector: imdb
+    category:
+      selector: title
+      case:
+        - regexp: "\\b(S\\d+(?:E\\d+)?)\\b"
+          result: TV
+        - regexp: ".*"
+          result: Movies
+
+# json engine

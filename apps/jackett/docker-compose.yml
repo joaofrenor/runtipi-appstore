@@ -12,6 +12,8 @@ services:
       - ${DNS_IP}
     volumes:
       - ${APP_DATA_DIR}/data:/config
+      - ${ROOT_FOLDER_HOST}/jackett/comando-indexer.yml:/app/Jackett/Definitions/comando-indexer.yml
+      - ${ROOT_FOLDER_HOST}/jackett/bludv-indexer.yml:/app/Jackett/Definitions/bludv-indexer.yml
       - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
     ports:
       - ${APP_PORT}:9117
